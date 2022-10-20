@@ -6,8 +6,13 @@ More detail [here](https://es.wikipedia.org/wiki/Conecta_4).
 
 ### Model - View
 
-* **Without Factory Method** - [link](https://github.com/JordyPiedra/patterns-master/tree/master/connect4/modelView/withoutFactoryMethod)
-* **With Factory Method** - [link](https://github.com/JordyPiedra/patterns-master/tree/master/connect4/modelView/withFactoryMethod)
+* **Without Factory Method** - [here](https://github.com/JordyPiedra/patterns-master/tree/master/connect4/modelView/withoutFactoryMethod)
+* **With Factory Method** - [here](https://github.com/JordyPiedra/patterns-master/tree/master/connect4/modelView/withFactoryMethod)
+
+### Model - View - Controller
+
+* **Basic** - [here](https://github.com/JordyPiedra/patterns-master/tree/master/connect4/modelViewController/basic)
+* **Facade** - [here](https://github.com/JordyPiedra/patterns-master/tree/master/connect4/modelViewController/facade)
 
 ## Autores
 
