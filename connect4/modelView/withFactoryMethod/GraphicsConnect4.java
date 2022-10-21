@@ -4,21 +4,11 @@ import connect4.modelView.withFactoryMethod.models.Game;
 import connect4.modelView.withFactoryMethod.views.View;
 import connect4.modelView.withFactoryMethod.views.graphics.GraphicsView;
 
+public class GraphicsConnect4 extends Connect4 {
 
-public class GraphicsConnect4 {
-    private Game game;
-    private View view;
-
-    GraphicsConnect4() {
-        this.game = new Game();
-        this.view = new GraphicsView(this.game);
-    }
-
-    private void play() {
-        do {
-            this.view.start();
-            this.view.play();
-        } while (this.view.resume());
+    @Override
+    protected View createView(Game game) {
+        return new GraphicsView(game);
     }
 
     public static void main(String[] args) {
