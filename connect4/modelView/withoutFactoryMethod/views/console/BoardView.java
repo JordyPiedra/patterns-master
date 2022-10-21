@@ -4,7 +4,6 @@ import connect4.modelView.withoutFactoryMethod.models.Board;
 import connect4.modelView.withoutFactoryMethod.models.Game;
 import connect4.modelView.withoutFactoryMethod.types.Coordinate;
 import connect4.modelView.withoutFactoryMethod.utils.Console;
-import connect4.modelView.withoutFactoryMethod.utils.Message;
 
 public class BoardView extends InteractiveView {
 
@@ -13,16 +12,16 @@ public class BoardView extends InteractiveView {
     }
 
     public void interact() {
-        Message.HORIZONTAL_LINE.writeln();
+        new MessageView().writeln(Message.HORIZONTAL_LINE);
         for (int i = 0; i < Board.DIMENSION_ROW; i++) {
-            Message.VERTICAL_LINE.write();
+            new MessageView().write(Message.VERTICAL_LINE);
             for (int j = 0; j < Board.DIMENSION_COLUMN; j++) {
                 new ColorView().interact(this.game.getColor(new Coordinate(i, j)));
-                Message.VERTICAL_LINE.write();
+                new MessageView().write(Message.VERTICAL_LINE);
             }
             Console.getInstance().writeln();
         }
-        Message.HORIZONTAL_LINE.writeln();
+        new MessageView().writeln(Message.VERTICAL_LINE);
 
     }
 }

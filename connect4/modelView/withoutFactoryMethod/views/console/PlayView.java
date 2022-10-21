@@ -1,7 +1,6 @@
 package connect4.modelView.withoutFactoryMethod.views.console;
 
 import connect4.modelView.withoutFactoryMethod.models.Game;
-import connect4.modelView.withoutFactoryMethod.utils.Message;
 
 public class PlayView extends InteractiveView {
     public PlayView(Game game) {
@@ -16,9 +15,9 @@ public class PlayView extends InteractiveView {
         } while (!this.game.isConnect4() && !this.game.isFinished());
 
         if (this.game.isConnect4()) {
-            Message.PLAYER_WIN.writeln(this.game.getCurrentPlayer());
+            new MessageView().writeln(Message.PLAYER_WIN, this.game.getCurrentPlayer());            
         } else {
-            Message.GAME_FINISHED.writeln();
+            new MessageView().writeln(Message.GAME_FINISHED);
         }
 
     }
