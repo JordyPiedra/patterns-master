@@ -8,5 +8,5 @@ public abstract class InteractiveView<T extends Controller> {
     public InteractiveView(T controller) {
         this.controller = controller;
     }
-    
+
 }

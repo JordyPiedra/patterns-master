@@ -1,7 +1,6 @@
 package connect4.modelViewController.basic.views.console;
 
 import connect4.modelViewController.basic.controllers.ResumeController;
-import connect4.modelViewController.basic.utils.Message;
 import connect4.modelViewController.basic.utils.YesNoDialog;
 
 public class ResumeView extends InteractiveView<ResumeController> {
@@ -18,6 +17,5 @@ public class ResumeView extends InteractiveView<ResumeController> {
         }
         return isResumed.isAffirmative();
     }
-
 
 }

@@ -19,19 +19,15 @@ public class ConsoleView extends View {
         this.resumeView = new ResumeView(resumeController);
     }
 
-    @Override
     public void start() {
         this.startView.interact();
     }
 
-    @Override
     public void play() {
         this.playView.interact();
     }
 
-    @Override
     public boolean resume() {
         return this.resumeView.interact();
     }
-
 }

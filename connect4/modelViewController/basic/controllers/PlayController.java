@@ -1,6 +1,7 @@
 package connect4.modelViewController.basic.controllers;
 
 import connect4.modelViewController.basic.models.Game;
+import connect4.modelViewController.basic.types.Error;
 
 public class PlayController extends Controller {
 
@@ -12,7 +13,6 @@ public class PlayController extends Controller {
         return this.game.getCurrentPlayer();
     }
 
-
     public Integer getNextRow(int column) {
         return this.game.getNextRow(column);
     }
@@ -21,7 +21,7 @@ public class PlayController extends Controller {
         this.game.putToken(column);
     }
 
-    public void nextPlayer() {
+    public void next() {
         this.game.next();
     }
 
@@ -31,5 +31,13 @@ public class PlayController extends Controller {
 
     public boolean isFinished() {
         return this.game.isFinished();
+    }
+
+    public boolean isAllTokensAdded() {
+        return this.game.isAllTokensAdded();
+    }
+
+    public Error getPutTokenError(int column) {
+        return this.game.getPutTokenError(column);
     }
 }

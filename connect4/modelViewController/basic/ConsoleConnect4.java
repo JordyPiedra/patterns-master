@@ -13,7 +13,4 @@ public class ConsoleConnect4 extends Connect4 {
         new ConsoleConnect4().play();
     }
 
-
- 
-
 }

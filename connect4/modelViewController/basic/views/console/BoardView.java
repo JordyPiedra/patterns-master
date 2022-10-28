@@ -3,7 +3,6 @@ package connect4.modelViewController.basic.views.console;
 import connect4.modelViewController.basic.controllers.Controller;
 import connect4.modelViewController.basic.types.Coordinate;
 import connect4.modelViewController.basic.utils.Console;
-import connect4.modelViewController.basic.utils.Message;
 
 public class BoardView extends InteractiveView<Controller> {
 
@@ -12,16 +11,16 @@ public class BoardView extends InteractiveView<Controller> {
     }
 
     public void interact() {
-        Message.HORIZONTAL_LINE.writeln();
-        for (int i = 0; i < controller.getDimensionRow(); i++) {
-            Message.VERTICAL_LINE.write();
-            for (int j = 0; j < controller.getDimensionColumn(); j++) {
+        new MessageView().writeln(Message.HORIZONTAL_LINE);
+        for (int i = 0; i < this.controller.getDimensionRow(); i++) {
+            new MessageView().write(Message.VERTICAL_LINE);
+            for (int j = 0; j < this.controller.getDimensionColumn(); j++) {
                 new ColorView().interact(this.controller.getColor(new Coordinate(i, j)));
-                Message.VERTICAL_LINE.write();
+                new MessageView().write(Message.VERTICAL_LINE);
             }
             Console.getInstance().writeln();
         }
-        Message.HORIZONTAL_LINE.writeln();
+        new MessageView().writeln(Message.VERTICAL_LINE);
 
     }
 }
