@@ -101,7 +101,6 @@ public class Game {
             return Error.FULL_COLUMN;
         }
 
-
         return Error.NULL;
     }
 

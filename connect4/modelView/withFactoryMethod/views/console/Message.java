@@ -1,4 +1,4 @@
-package connect4.modelView.withFactoryMethod.utils;
+package connect4.modelView.withFactoryMethod.views.console;
 
 public enum Message {
     TITLE("#########CONNECT4#######"),
@@ -11,26 +11,16 @@ public enum Message {
 
     GAME_FINISHED("Game finished - Draw"),
 
-    RESUME("Reset game? y / n "),
+    RESUME("Reset game?"),
 
-    PLAYER_TURN("player #player turn ");
+    PLAYER_TURN("player #player turn "),
+
+    WRONG_COLUMN("Wrong column");
 
     private String message;
 
     Message(String message) {
         this.message = message;
-    }
-
-    public void write() {
-        Console.getInstance().write(this.message);
-    }
-
-    public void writeln() {
-        Console.getInstance().writeln(this.message);
-    }
-
-   public void writeln(int player) {
-        Console.getInstance().writeln(this.message.replaceAll("#player", "" + player));
     }
 
     @Override

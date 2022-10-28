@@ -21,4 +21,8 @@ public class Player {
     public int getPutTokens() {
         return putTokens;
     }
+
+    public boolean isAllTokensAdded() {
+        return this.putTokens == (Board.DIMENSION_COLUMN * Board.DIMENSION_ROW) / 2;
+    }
 }

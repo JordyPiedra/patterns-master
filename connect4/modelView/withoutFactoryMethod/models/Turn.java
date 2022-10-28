@@ -26,7 +26,6 @@ public class Turn {
         this.currentPlayer = 0;
     }
 
-
     public void putToken(int column) {
 
         if (!isAllTokensAdded()) {

@@ -5,6 +5,7 @@ import java.util.List;
 import connect4.modelView.withFactoryMethod.types.Color;
 import connect4.modelView.withFactoryMethod.types.Coordinate;
 import connect4.modelView.withFactoryMethod.types.Direction;
+import connect4.modelView.withFactoryMethod.types.Error;
 
 public class Game {
 
@@ -82,9 +83,25 @@ public class Game {
         return this.board.getColor(coordinate);
     }
 
-    public Integer getNextRow(int column) {
+    public int getNextRow(int column) {
         return this.board.getNextRow(column);
     }
 
+    public boolean isAllTokensAdded() {
+        return this.turn.isAllTokensAdded();
+    }
+
+    public Error getPutTokenError(int column) {
+
+        if (!this.board.isColumnValid(column)) {
+            return Error.WRONG_COLUMN;
+        }
+
+        if (!this.board.isNextRowValid(column)) {
+            return Error.FULL_COLUMN;
+        }
+
+        return Error.NULL;
+    }
 
 }
