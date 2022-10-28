@@ -25,14 +25,20 @@ public class Board {
         }
     }
 
-
-    public Integer getNextRow(int column) {
-
-        for (int row = DIMENSION_ROW - 1; row >= 0; row--) {
-            if (this.colors[row][column].isNull())
-                return row;
+    public int getNextRow(int column) {
+        int row = DIMENSION_ROW - 1;
+        while (!this.colors[row][column].isNull() && row > 0) {
+            row--;
         }
-        return null;
+        return row;
+    }
+
+    public boolean isColumnValid(int column) {
+        return column >= 0 && column <= DIMENSION_COLUMN;
+    }
+
+    public boolean isNextRowValid(int column) {
+        return this.colors[0][column].isNull();
     }
 
     public void putToken(int column, Color color) {
@@ -46,7 +52,7 @@ public class Board {
     }
 
     public boolean isCoordinateValid(Coordinate coordinate) {
-        return (coordinate.getRow() >= 0 && coordinate.getRow() < Board.DIMENSION_ROW) && (coordinate.getColumn() >= 0 && coordinate.getColumn() < Board.DIMENSION_COLUMN);
+        return coordinate.isValid(new Coordinate(DIMENSION_ROW, DIMENSION_COLUMN));
     }
 
     public Color getCurrentColor() {

@@ -10,7 +10,6 @@ public class Turn {
     private Board board;
     private int currentPlayer;
 
-
     Turn(Board board) {
         assert board != null;
         this.board = board;
@@ -30,18 +29,13 @@ public class Turn {
 
     public void putToken(int column) {
 
-        if (!isAllTokensAdded()){
+        if (!isAllTokensAdded()) {
             this.players[this.currentPlayer].putToken(column);
         }
     }
 
     public boolean isAllTokensAdded() {
-        int totalTokens = 0;
-        for (int i = 0; i < NUMBER_PLAYERS; i++) {
-            totalTokens += this.players[i].getPutTokens();
-        }
-        return totalTokens == Board.DIMENSION_ROW * Board.DIMENSION_COLUMN;
-
+        return this.players[getCurrentPlayer()].isAllTokensAdded();
     }
 
     public void nextPlayer() {
