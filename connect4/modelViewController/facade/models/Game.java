@@ -5,6 +5,7 @@ import java.util.List;
 import connect4.modelViewController.facade.types.Color;
 import connect4.modelViewController.facade.types.Coordinate;
 import connect4.modelViewController.facade.types.Direction;
+import connect4.modelViewController.facade.types.Error;
 
 public class Game {
 
@@ -58,9 +59,10 @@ public class Game {
     }
 
     public boolean isDirectionValid(Direction[] directions) {
+
         int totalTokens = 1;
-        for (Direction direction : directions) {
-            totalTokens += countValidTokens(direction);
+        for (int i = 0; i < directions.length; i++) {
+            totalTokens += countValidTokens(directions[i]);
         }
         return totalTokens >= MIN_RESULT_SIZE;
     }
@@ -81,18 +83,33 @@ public class Game {
         return this.board.getColor(coordinate);
     }
 
-    public Integer getNextRow(int column) {
+    public int getNextRow(int column) {
         return this.board.getNextRow(column);
     }
 
-    public Integer getDimensionRow() {
+    public boolean isAllTokensAdded() {
+        return this.turn.isAllTokensAdded();
+    }
+
+    public Error getPutTokenError(int column) {
+
+        if (!this.board.isColumnValid(column)) {
+            return Error.WRONG_COLUMN;
+        }
+
+        if (!this.board.isNextRowValid(column)) {
+            return Error.FULL_COLUMN;
+        }
+
+        return Error.NULL;
+    }
+
+    public int getDimensionRow() {
         return Board.DIMENSION_ROW;
     }
 
-    public Integer getDimensionColumn() {
+    public int getDimensionColumn() {
         return Board.DIMENSION_COLUMN;
     }
-
-
 
 }

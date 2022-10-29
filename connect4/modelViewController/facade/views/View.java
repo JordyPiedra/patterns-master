@@ -1,19 +1,13 @@
 package connect4.modelViewController.facade.views;
 
-import connect4.modelViewController.facade.controllers.PlayController;
-import connect4.modelViewController.facade.controllers.ResumeController;
-import connect4.modelViewController.facade.controllers.StartController;
+import connect4.modelViewController.facade.controllers.Logic;
 
 public abstract class View {
 
-    protected StartController startController;
-    protected PlayController playController;
-    protected ResumeController resumeController;
+    protected Logic logic;
 
-    public View(StartController startController, PlayController playController, ResumeController resumeController) {
-        this.startController = startController;
-        this.playController = playController;
-        this.resumeController = resumeController;
+    public View(Logic logic) {
+        this.logic = logic;
     }
 
     public abstract void start();

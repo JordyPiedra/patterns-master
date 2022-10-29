@@ -1,27 +1,26 @@
 package connect4.modelViewController.facade.views.console;
 
-import connect4.modelViewController.facade.controllers.Controller;
+import connect4.modelViewController.facade.controllers.Logic;
 import connect4.modelViewController.facade.types.Coordinate;
 import connect4.modelViewController.facade.utils.Console;
-import connect4.modelViewController.facade.utils.Message;
 
-public class BoardView extends InteractiveView<Controller> {
+public class BoardView extends InteractiveView {
 
-    public BoardView(Controller controller) {
-        super(controller);
+    public BoardView(Logic logic) {
+        super(logic);
     }
 
     public void interact() {
-        Message.HORIZONTAL_LINE.writeln();
-        for (int i = 0; i < controller.getDimensionRow(); i++) {
-            Message.VERTICAL_LINE.write();
-            for (int j = 0; j < controller.getDimensionColumn(); j++) {
-                new ColorView().interact(this.controller.getColor(new Coordinate(i, j)));
-                Message.VERTICAL_LINE.write();
+        new MessageView().writeln(Message.HORIZONTAL_LINE);
+        for (int i = 0; i < this.logic.getDimensionRow(); i++) {
+            new MessageView().write(Message.VERTICAL_LINE);
+            for (int j = 0; j < this.logic.getDimensionColumn(); j++) {
+                new ColorView().interact(this.logic.getColor(new Coordinate(i, j)));
+                new MessageView().write(Message.VERTICAL_LINE);
             }
             Console.getInstance().writeln();
         }
-        Message.HORIZONTAL_LINE.writeln();
+        new MessageView().writeln(Message.VERTICAL_LINE);
 
     }
 }

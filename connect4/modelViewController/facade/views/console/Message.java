@@ -1,4 +1,4 @@
-package connect4.modelViewController.facade.utils;
+package connect4.modelViewController.facade.views.console;
 
 public enum Message {
     TITLE("#########CONNECT4#######"),
@@ -11,9 +11,11 @@ public enum Message {
 
     GAME_FINISHED("Game finished - Draw"),
 
-    RESUME("Reset game? y / n "),
+    RESUME("Reset game?"),
 
-    PLAYER_TURN("player #player turn ");
+    PLAYER_TURN("player #player turn "),
+
+    WRONG_COLUMN("Wrong column");
 
     private String message;
 
@@ -21,22 +23,9 @@ public enum Message {
         this.message = message;
     }
 
-    public void write() {
-        Console.getInstance().write(this.message);
-    }
-
-    public void writeln() {
-        Console.getInstance().writeln(this.message);
-    }
-
-   public void writeln(int player) {
-        Console.getInstance().writeln(this.message.replaceAll("#player", "" + player));
-    }
-
     @Override
     public String toString() {
         return message;
     }
-
 
 }

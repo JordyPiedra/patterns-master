@@ -1,23 +1,15 @@
 package connect4.modelViewController.facade;
 
-import connect4.modelViewController.facade.controllers.PlayController;
-import connect4.modelViewController.facade.controllers.ResumeController;
-import connect4.modelViewController.facade.controllers.StartController;
-import connect4.modelViewController.facade.models.Game;
+import connect4.modelViewController.facade.controllers.Logic;
 import connect4.modelViewController.facade.views.View;
 
 abstract class Connect4 {
-    private Game game;
+
     protected View view;
-    protected StartController startController;
-    protected PlayController playController;
-    protected ResumeController resumeController;
+    protected Logic logic;
 
     public Connect4() {
-        this.game = new Game();
-        this.startController = new StartController(this.game);
-        this.playController = new PlayController(this.game);
-        this.resumeController = new ResumeController(this.game);
+        this.logic = new Logic();
         this.view = this.createView();
     }
 

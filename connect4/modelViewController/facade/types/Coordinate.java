@@ -19,4 +19,8 @@ public class Coordinate {
         return row;
     }
 
+    public boolean isValid(Coordinate limit) {
+        return this.row >= 0 && this.row < limit.getRow() && this.column >= 0 && this.column < limit.getColumn();
+    }
+
 }

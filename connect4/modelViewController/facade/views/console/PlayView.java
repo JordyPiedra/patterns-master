@@ -1,26 +1,23 @@
 package connect4.modelViewController.facade.views.console;
 
-import connect4.modelViewController.facade.controllers.PlayController;
-import connect4.modelViewController.facade.utils.Message;
+import connect4.modelViewController.facade.controllers.Logic;
 
-public class PlayView extends InteractiveView<PlayController> {
+public class PlayView extends InteractiveView {
 
-
-    public PlayView(PlayController controller) {
-        super(controller);
+    public PlayView(Logic logic) {
+        super(logic);
     }
 
     public void interact() {
         do {
-            this.controller.nextPlayer();
-            new PlayerView(this.controller).interact();
-            new BoardView(this.controller).interact();
-        } while (!this.controller.isConnect4() && !this.controller.isFinished());
+            new PlayerView(this.logic).interact();
+            new BoardView(this.logic).interact();
+        } while (!this.logic.isConnect4() && !this.logic.isFinished());
 
-        if (this.controller.isConnect4()) {
-            Message.PLAYER_WIN.writeln(this.controller.getCurrentPlayer());
+        if (this.logic.isConnect4()) {
+            new MessageView().writeln(Message.PLAYER_WIN, this.logic.getCurrentPlayer());
         } else {
-            Message.GAME_FINISHED.writeln();
+            new MessageView().writeln(Message.GAME_FINISHED);
         }
 
     }

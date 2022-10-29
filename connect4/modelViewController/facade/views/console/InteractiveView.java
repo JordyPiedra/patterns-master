@@ -1,12 +1,13 @@
 package connect4.modelViewController.facade.views.console;
 
-import connect4.modelViewController.facade.controllers.Controller;
+import connect4.modelViewController.facade.controllers.Logic;
 
-public abstract class InteractiveView<T extends Controller> {
-    protected T controller;
+public abstract class InteractiveView {
 
-    public InteractiveView(T controller) {
-        this.controller = controller;
+    protected Logic logic;
+
+    public InteractiveView(Logic logic) {
+        this.logic = logic;
     }
-    
+
 }
