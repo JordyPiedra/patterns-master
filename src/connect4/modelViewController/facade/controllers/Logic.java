@@ -7,16 +7,15 @@ import connect4.modelViewController.facade.types.Error;
 
 public class Logic {
 
-    private Game game;
     private StartController startController;
     private PlayController playController;
     private ResumeController resumeController;
 
     public Logic() {
-        this.game = new Game();
-        this.startController = new StartController(this.game);
-        this.playController = new PlayController(this.game);
-        this.resumeController = new ResumeController(this.game);
+        Game game = new Game();
+        this.startController = new StartController(game);
+        this.playController = new PlayController(game);
+        this.resumeController = new ResumeController(game);
     }
 
     public int getDimensionRow() {
