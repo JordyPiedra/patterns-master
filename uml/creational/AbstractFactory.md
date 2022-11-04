@@ -21,6 +21,10 @@ abstract class InstrumentList {
 
 Scenario .down.> Surgeon
 
+Surgeon .down.> CuttingTool
+Surgeon .down.> DryingTool
+
+
 Surgeon .down.> InstrumentList
 Scenario .down.> InstrumentList
 
@@ -36,9 +40,6 @@ CuttingTool <|-down- Knife
 
 DryingTool <|-down- Compress 
 DryingTool <|-down- Rag
-
-InstrumentList .down.> CuttingTool
-InstrumentList .down.> DryingTool
 
 
 class InstrumentalistOperationRoom {
