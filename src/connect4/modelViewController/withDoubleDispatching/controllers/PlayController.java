@@ -44,7 +44,7 @@ public class PlayController extends Controller {
 
     @Override
     public void accept(ControllersVisitor controllersVisitor) {
-        controllersVisitor.accept(this);
+        controllersVisitor.visit(this);
     }
 
 

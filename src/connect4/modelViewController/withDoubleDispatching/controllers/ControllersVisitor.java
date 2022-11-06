@@ -2,10 +2,10 @@ package connect4.modelViewController.withDoubleDispatching.controllers;
 
 public interface ControllersVisitor {
 
-    public void accept(StartController controller);
+    public void visit(StartController controller);
 
-    public void accept(PlayController controller);
+    public void visit(PlayController controller);
 
-    public boolean accept(ResumeController controller);
+    public boolean visit(ResumeController controller);
 
 }

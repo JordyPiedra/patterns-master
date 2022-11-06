@@ -12,19 +12,19 @@ public class GraphicsView implements View {
     }
 
     @Override
-    public void accept(StartController controller) {
+    public void visit(StartController controller) {
         // TODO Auto-generated method stub
 
     }
 
     @Override
-    public void accept(PlayController controller) {
+    public void visit(PlayController controller) {
         // TODO Auto-generated method stub
 
     }
 
     @Override
-    public boolean accept(ResumeController controller) {
+    public boolean visit(ResumeController controller) {
         // TODO Auto-generated method stub
         return false;
     }
