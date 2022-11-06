@@ -1,6 +1,7 @@
 package connect4.modelViewController.withDoubleDispatching.models;
 
 import connect4.modelViewController.withDoubleDispatching.types.Color;
+import connect4.modelViewController.withDoubleDispatching.types.Coordinate;
 
 public class Turn {
 
@@ -9,7 +10,6 @@ public class Turn {
 
     private Board board;
     private int currentPlayer;
-
 
     Turn(Board board) {
         assert board != null;
@@ -23,13 +23,12 @@ public class Turn {
         for (int i = 0; i < NUMBER_PLAYERS; i++) {
             this.players[i] = new Player(Color.values()[i], this.board);
         }
-        this.currentPlayer = (int) ( Math.random() * 2 );
+        this.currentPlayer = (int) (Math.random() * 2);
     }
-
 
     public void putToken(int column) {
 
-        if (!isAllTokensAdded()){
+        if (!isAllTokensAdded()) {
             this.players[this.currentPlayer].putToken(column);
         }
     }
@@ -39,7 +38,7 @@ public class Turn {
         for (int i = 0; i < NUMBER_PLAYERS; i++) {
             totalTokens += this.players[i].getPutTokens();
         }
-        return totalTokens == Board.DIMENSION_ROW * Board.DIMENSION_COLUMN;
+        return totalTokens == Coordinate.DIMENSION_ROW * Coordinate.DIMENSION_COLUMN;
 
     }
 

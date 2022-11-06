@@ -18,14 +18,6 @@ public class Logic {
         this.resumeController = new ResumeController(game);
     }
 
-    public int getDimensionRow() {
-        return startController.getDimensionRow();
-    }
-
-    public int getDimensionColumn() {
-        return startController.getDimensionColumn();
-    }
-
     public Color getColor(Coordinate coordinate) {
         return startController.getColor(coordinate);
     }

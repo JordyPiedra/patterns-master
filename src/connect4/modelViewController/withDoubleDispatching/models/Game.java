@@ -71,8 +71,7 @@ public class Game {
 
         int tokens = 0;
         Coordinate nextCoordinate = direction.increment(this.board.getLastToken());
-        while (this.board.isCoordinateValid(nextCoordinate)
-                && this.board.getCurrentColor().equals(this.board.getColor(nextCoordinate))) {
+        while (nextCoordinate.isValid() && this.board.getCurrentColor().equals(this.board.getColor(nextCoordinate))) {
             tokens++;
             nextCoordinate = direction.increment(nextCoordinate);
         }
@@ -102,14 +101,6 @@ public class Game {
         }
 
         return Error.NULL;
-    }
-
-    public int getDimensionRow() {
-        return Board.DIMENSION_ROW;
-    }
-
-    public int getDimensionColumn() {
-        return Board.DIMENSION_COLUMN;
     }
 
 }

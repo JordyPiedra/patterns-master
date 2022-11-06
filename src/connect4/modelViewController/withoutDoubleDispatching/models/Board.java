@@ -5,28 +5,26 @@ import connect4.modelViewController.withoutDoubleDispatching.types.Coordinate;
 
 public class Board {
 
-    public static final int DIMENSION_ROW = 7;
-    public static final int DIMENSION_COLUMN = 6;
     Color[][] colors;
 
     Coordinate lastToken;
 
     Board() {
-        this.colors = new Color[DIMENSION_ROW][DIMENSION_COLUMN];
+        this.colors = new Color[Coordinate.DIMENSION_ROW][Coordinate.DIMENSION_COLUMN];
         this.reset();
     }
 
     public void reset() {
 
-        for (int i = 0; i < DIMENSION_ROW; i++) {
-            for (int j = 0; j < DIMENSION_COLUMN; j++) {
+        for (int i = 0; i < Coordinate.DIMENSION_ROW; i++) {
+            for (int j = 0; j < Coordinate.DIMENSION_COLUMN; j++) {
                 this.colors[i][j] = Color.NULL;
             }
         }
     }
 
     public int getNextRow(int column) {
-        int row = DIMENSION_ROW - 1;
+        int row = Coordinate.DIMENSION_ROW - 1;
         while (!this.colors[row][column].isNull() && row > 0) {
             row--;
         }
@@ -34,7 +32,7 @@ public class Board {
     }
 
     public boolean isColumnValid(int column) {
-        return column >= 0 && column <= DIMENSION_COLUMN;
+        return column >= 0 && column <= Coordinate.DIMENSION_COLUMN;
     }
 
     public boolean isNextRowValid(int column) {
@@ -49,10 +47,6 @@ public class Board {
 
     public Color getColor(Coordinate coordinate) {
         return colors[coordinate.getRow()][coordinate.getColumn()];
-    }
-
-    public boolean isCoordinateValid(Coordinate coordinate) {
-        return coordinate.isValid(new Coordinate(DIMENSION_ROW, DIMENSION_COLUMN));
     }
 
     public Color getCurrentColor() {

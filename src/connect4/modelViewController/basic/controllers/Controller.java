@@ -16,11 +16,4 @@ public abstract class Controller {
         return this.game.getColor(coordinate);
     }
 
-    public Integer getDimensionRow() {
-        return this.game.getDimensionRow();
-    }
-
-    public Integer getDimensionColumn() {
-        return this.game.getDimensionColumn();
-    }
 }
