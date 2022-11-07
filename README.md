@@ -15,6 +15,8 @@ More detail [here](https://es.wikipedia.org/wiki/Conecta_4).
 * **Facade** - [here](https://github.com/JordyPiedra/patterns-master/tree/master/src/connect4/modelViewController/facade)
 * **Without Double Dispatching** - [here](https://github.com/JordyPiedra/patterns-master/tree/master/src/connect4/modelViewController/withoutDoubleDispatching)
 * **With Double Dispatching** - [here](https://github.com/JordyPiedra/patterns-master/tree/master/src/connect4/modelViewController/withDoubleDispatching)
+* **Composite (Command, Facade, Memento)** - [here](https://github.com/JordyPiedra/patterns-master/tree/master/src/connect4/modelViewController/composite)
+* **Passive View** - [here](https://github.com/JordyPiedra/patterns-master/tree/master/src/connect4/modelViewController/passiveView)
 
 ## Autores
 
