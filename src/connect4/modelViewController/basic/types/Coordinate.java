@@ -26,4 +26,5 @@ public class Coordinate {
         return this.row >= 0 && this.row < DIMENSION_ROW && this.column >= 0 && this.column < DIMENSION_COLUMN;
     }
 
+
 }

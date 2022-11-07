@@ -22,8 +22,26 @@ public class Coordinate {
         return row;
     }
 
-    public boolean isValid() {
-        return this.row >= 0 && this.row < DIMENSION_ROW && this.column >= 0 && this.column < DIMENSION_COLUMN;
+    public boolean isValidRange() {
+        return isValidRange(this.row, DIMENSION_ROW) && isValidRange(this.column, DIMENSION_COLUMN);
     }
 
+    public boolean isValidRange(int value, int maxValue) {
+        return value >= 0 && value < maxValue;
+    }
+
+    public Coordinate move(Direction direction) {
+        return sumCoordinate(direction.getCoordinate());
+    }
+
+    public Coordinate move(Coordinate coordinate) {
+        return sumCoordinate(coordinate);
+    }
+
+    private Coordinate sumCoordinate(Coordinate coordinate){
+        return new Coordinate(this.row + coordinate.getRow(), this.column + coordinate.getColumn());
+    }
+    public Coordinate inverted() {
+        return new Coordinate(this.row * -1, this.column * -1);
+    }
 }

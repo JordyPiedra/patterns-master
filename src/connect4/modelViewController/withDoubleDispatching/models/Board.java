@@ -5,9 +5,9 @@ import connect4.modelViewController.withDoubleDispatching.types.Coordinate;
 
 public class Board {
 
-    Color[][] colors;
+    private Color[][] colors;
 
-    Coordinate lastToken;
+    private Coordinate lastToken;
 
     Board() {
         this.colors = new Color[Coordinate.DIMENSION_ROW][Coordinate.DIMENSION_COLUMN];

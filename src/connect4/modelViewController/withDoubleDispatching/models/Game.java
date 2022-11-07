@@ -1,11 +1,12 @@
 package connect4.modelViewController.withDoubleDispatching.models;
 
-import java.util.List;
-
 import connect4.modelViewController.withDoubleDispatching.types.Color;
 import connect4.modelViewController.withDoubleDispatching.types.Coordinate;
 import connect4.modelViewController.withDoubleDispatching.types.Direction;
 import connect4.modelViewController.withDoubleDispatching.types.Error;
+
+import java.util.Arrays;
+import java.util.Iterator;
 
 public class Game {
 
@@ -49,31 +50,23 @@ public class Game {
     }
 
     public boolean isConnect4() {
-        List<Direction[]> directions = Direction.getAllDirections();
-        for (Direction[] direction : directions) {
-            if (this.isDirectionValid(direction)) {
-                return true;
-            }
+        boolean isWinnerLine = false;
+        for (int i = 0; i < Direction.values().length && !isWinnerLine; i++) {
+            isWinnerLine = tokensByDirection(Direction.values()[i]) >= MIN_RESULT_SIZE;
         }
-        return false;
+        return isWinnerLine;
     }
 
-    public boolean isDirectionValid(Direction[] directions) {
-
-        int totalTokens = 1;
-        for (int i = 0; i < directions.length; i++) {
-            totalTokens += countValidTokens(directions[i]);
-        }
-        return totalTokens >= MIN_RESULT_SIZE;
+    private int tokensByDirection(Direction direction) {
+        return countTokens(direction.getCoordinate()) + countTokens(direction.inverted()) + 1;
     }
 
-    public int countValidTokens(Direction direction) {
-
+    private int countTokens(Coordinate coordinate) {
         int tokens = 0;
-        Coordinate nextCoordinate = direction.increment(this.board.getLastToken());
-        while (nextCoordinate.isValid() && this.board.getCurrentColor().equals(this.board.getColor(nextCoordinate))) {
+        Coordinate nextCoordinate = this.board.getLastToken().move(coordinate);
+        while (nextCoordinate.isValidRange() && this.board.getCurrentColor().equals(this.board.getColor(nextCoordinate))) {
             tokens++;
-            nextCoordinate = direction.increment(nextCoordinate);
+            nextCoordinate = nextCoordinate.move(coordinate);
         }
         return tokens;
     }
