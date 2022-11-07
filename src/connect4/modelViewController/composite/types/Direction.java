@@ -1,4 +1,4 @@
-package connect4.modelViewController.withDoubleDispatching.types;
+package connect4.modelViewController.composite.types;
 
 public enum Direction {
     RIGHT(0, 1),

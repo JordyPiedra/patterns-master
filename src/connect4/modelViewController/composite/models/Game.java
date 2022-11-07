@@ -1,9 +1,9 @@
-package connect4.modelViewController.withDoubleDispatching.models;
+package connect4.modelViewController.composite.models;
 
-import connect4.modelViewController.withDoubleDispatching.types.Color;
-import connect4.modelViewController.withDoubleDispatching.types.Coordinate;
-import connect4.modelViewController.withDoubleDispatching.types.Direction;
-import connect4.modelViewController.withDoubleDispatching.types.Error;
+import connect4.modelViewController.composite.types.Color;
+import connect4.modelViewController.composite.types.Coordinate;
+import connect4.modelViewController.composite.types.Direction;
+import connect4.modelViewController.composite.types.Error;
 
 public class Game {
 
@@ -28,6 +28,10 @@ public class Game {
 
     public int getCurrentPlayer() {
         return this.turn.getCurrentPlayer();
+    }
+
+    public Color getCurrentColor() {
+        return this.turn.getActiveColor();
     }
 
     public void putToken(int column) {
@@ -92,6 +96,19 @@ public class Game {
         }
 
         return Error.NULL;
+    }
+
+    Memento createMemento() {
+        return new Memento(this.board, this.turn);
+    }
+
+    void setMemento(Memento memento) {
+        this.board = memento.getBoard();
+        this.turn = new Turn(this.board);
+        this.turn.setActivePlayer(memento.getActivePlayer());
+        for (Color color : Color.getAll()) {
+            this.turn.setPlayerPutTokens(color, memento.getPlayerPutTokens(color));
+        }
     }
 
 }
