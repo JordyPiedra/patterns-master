@@ -5,11 +5,11 @@ import connect4.modelViewController.basic.types.Coordinate;
 
 public class Board {
 
-    Color[][] colors;
+    private Color[][] colors;
 
-    Coordinate lastToken;
+    private Coordinate lastToken;
 
-    Board() {
+    public Board() {
         this.colors = new Color[Coordinate.DIMENSION_ROW][Coordinate.DIMENSION_COLUMN];
         this.reset();
     }

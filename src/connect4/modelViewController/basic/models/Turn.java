@@ -11,7 +11,7 @@ public class Turn {
     private Board board;
     private int currentPlayer;
 
-    Turn(Board board) {
+    public Turn(Board board) {
         assert board != null;
         this.board = board;
         this.players = new Player[Turn.NUMBER_PLAYERS];
