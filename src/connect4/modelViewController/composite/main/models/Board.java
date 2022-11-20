@@ -73,4 +73,11 @@ public class Board {
         return characters;
     }
 
+    boolean isOccupied(Coordinate coordinate, Color color) {
+        return this.getColor(coordinate) == color;
+    }
+
+    public boolean isEmpty(Coordinate coordinate) {
+        return this.isOccupied(coordinate, Color.NULL);
+    }
 }

@@ -5,48 +5,55 @@ import connect4.modelViewController.composite.main.types.Color;
 import connect4.modelViewController.composite.main.types.Coordinate;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.regex.Pattern;
+import java.util.Map;
 
 public class BoardBuilder {
 
-    private List<String> rows;
+    private Map<Integer, List<Color>> tokens;
 
     public BoardBuilder() {
-        this.rows = new ArrayList<>();
+        this.tokens = new HashMap<>();
     }
 
-    public BoardBuilder rows(String... rows) {
-        assert rows.length == 3;
-        for (String row : rows) {
-            assert Pattern.matches("[XO ]{3}", row);
-            this.rows.add(row);
-        }
+
+    public BoardBuilder token(Color color, Integer column) {
+        assert column <= Coordinate.DIMENSION_COLUMN;
+        assert column > 0;
+        assert column != null;
+        this.addToken(color, column);
         return this;
     }
 
+
     public Board build() {
         Board board = new Board();
-        if (!this.rows.isEmpty()) {
-            for (int i = 0; i < this.rows.size(); i++) {
-                String string = this.rows.get(i);
-                for (int j = 0; j < string.length(); j++) {
-                    board.putToken(new Coordinate(i, j), this.getColor(string.charAt(j)));
-                }
+        for (Map.Entry<Integer, List<Color>> entry : tokens.entrySet()) {
+            for (Color color : entry.getValue()) {
+                board.putToken(entry.getKey(), color);
             }
+
         }
         return board;
     }
 
-    private Color getColor(char character) {
-        Color result = Color.NULL;
-        for (int i = 0; i < Color.values().length - 1; i++) {
-            Color color = Color.values()[i];
-            if (color.name().equals("" + character)) {
-                result = color;
+
+    public BoardBuilder full() {
+        for (int i = 0; i < Coordinate.DIMENSION_COLUMN; i++) {
+            for (int j = 0; j < Coordinate.DIMENSION_ROW; j++) {
+                this.addToken(Color.RED, i);
             }
         }
-        return result;
+        return this;
     }
 
+    private void addToken(Color color, Integer column) {
+        List<Color> colorList = this.tokens.get(column);
+        if (colorList == null) {
+            colorList = new ArrayList<>();
+        }
+        colorList.add(color);
+        this.tokens.put(column, colorList);
+    }
 }
