@@ -1,6 +1,7 @@
 package connect4.modelViewController.composite.tests.models;
 
 import connect4.modelViewController.composite.main.models.Board;
+import connect4.modelViewController.composite.main.types.Color;
 import connect4.modelViewController.composite.main.types.Coordinate;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,6 +44,23 @@ public class BoardTest {
     void testGiVeTheCurrentColorBeforeStartTheGameThenAssertionError() {
         Board board = this.boardBuilder.build();
         Assertions.assertThrows(NullPointerException.class, () -> board.getCurrentColor());
+    }
+
+    @Test
+    void testGivenBoardWhenGetColorFromBadCoordinateThenReturn() {
+        Board board = this.boardBuilder.build();
+        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> board.getColor(new Coordinate(-1, -1)));
+    }
+
+    @Test
+    void testAddTokenWhenColumnHasSpace() {
+        Board board = this.boardBuilder
+                .token(Color.RED, 1)
+                .token(Color.BLUE, 1)
+                .token(Color.RED, 1)
+                .token(Color.BLUE, 1)
+                .token(Color.RED, 1).build();
+        assertThat(board.isNextRowValid(1), is(true));
     }
 
     private static void assertEmpty(Board board) {

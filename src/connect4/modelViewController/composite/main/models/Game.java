@@ -46,9 +46,6 @@ public class Game {
         return board;
     }
 
-    public void setBoard(Board board) {
-        this.board = board;
-    }
 
     public boolean isConnect4() {
         boolean isWinnerLine = false;

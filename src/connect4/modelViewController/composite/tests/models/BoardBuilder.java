@@ -33,7 +33,6 @@ public class BoardBuilder {
             for (Color color : entry.getValue()) {
                 board.putToken(entry.getKey(), color);
             }
-
         }
         return board;
     }
