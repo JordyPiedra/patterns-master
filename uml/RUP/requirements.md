@@ -20,9 +20,9 @@ More info [here](https://es.wikipedia.org/wiki/Conecta_4).
 ### Vista de Casos de Uso
 
 
-| **Diagrama de Actores y Casos de Uso**          |  **Diagrama de Contexto**   |
-|-------------------------------------------------|-----|
-| <img src="static/usescases.png" alt="drawing"/>| <img src="static/stateDiagram.png" alt="drawing"/> |
+| **Diagrama de Actores y Casos de Uso** |  **Diagrama de Contexto**   |
+|----------------------------------------|-----|
+| <img src="static/usesCases.png" />     | <img src="static/stateDiagram.png"/> |
 
 
 
