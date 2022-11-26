@@ -4,7 +4,7 @@ class Scenario
 class Surgeon {
   +operate(InstrumentList)
 }
-note left 
+note left
 ...
 <b>instrumentalist.createCuttingTool();</b>
 cuttingTool.cut();
@@ -35,10 +35,10 @@ Scenario .down.> InstrumentalistJungle
 abstract class CuttingTool
 abstract class DryingTool
 
-CuttingTool <|-down- Scalpel 
+CuttingTool <|-down- Scalpel
 CuttingTool <|-down- Knife
 
-DryingTool <|-down- Compress 
+DryingTool <|-down- Compress
 DryingTool <|-down- Rag
 
 

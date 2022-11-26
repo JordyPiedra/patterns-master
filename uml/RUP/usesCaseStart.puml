@@ -1,0 +1,14 @@
+@startuml
+
+state INITIAL
+state IN_GAME
+state start as " "
+state started as " "
+
+[*] --> INITIAL
+INITIAL --> start: Player request an action to start a new game
+start --> started: System show the title and empty board
+started --> IN_GAME: System allows Play
+IN_GAME --> [*]
+
+@enduml

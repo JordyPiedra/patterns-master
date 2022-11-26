@@ -1,0 +1,23 @@
+@startuml
+
+state INITIAL
+state IN_GAME
+state OUT_GAME
+state EXIT
+state if_finished <<choice>>
+state if_resume <<choice>>
+
+[*] --> INITIAL
+INITIAL --> IN_GAME: Start
+IN_GAME --> if_finished: Play
+IN_GAME --> if_finished: Undo
+if_finished --> IN_GAME: Redo
+
+if_finished --> OUT_GAME: [finished]
+OUT_GAME --> if_resume: Resume
+if_resume --> IN_GAME: [continued]
+if_resume --> EXIT
+
+EXIT --> [*]
+
+@enduml

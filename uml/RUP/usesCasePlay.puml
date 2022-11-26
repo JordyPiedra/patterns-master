@@ -1,0 +1,86 @@
+@startuml
+
+state IN_GAME
+
+state initBoard as " "
+state if_initBoard <<choice>>
+state prepareBoard as " "
+state putToken as " "
+state updatedBoard as " "
+state if_statusGame <<choice>>
+state tieGame as " "
+state prepareWinner as " "
+state showWinner as " "
+
+
+state redoableAction as " "
+state undoableAction as " "
+state playAction as " "
+
+
+
+
+
+[*] --> IN_GAME
+
+
+IN_GAME --> initBoard:  Turn assigned to Player
+
+initBoard --> if_initBoard: [validAction]
+if_initBoard --> initBoard: Select valid Action
+
+
+
+if_initBoard --> undoableAction: [undoableAction]
+note on link
+    currentPlayer.tokens > 0
+end note
+
+
+
+
+
+if_initBoard --> playAction: [playAction]
+if_initBoard --> redoableAction: [redoableAction]
+note on link
+   undo has been made previosly
+end note
+
+
+
+
+
+playAction --> prepareBoard: System show to put token column position
+
+
+
+
+
+
+prepareBoard --> putToken: [validTokenColumnPosition]
+
+
+putToken --> prepareBoard: Show error message
+note on link
+    Wrong column
+    Column is not empty
+end note
+
+
+putToken --> updatedBoard: System shows updated board
+updatedBoard --> if_statusGame
+
+if_statusGame --> initBoard: change Player
+if_statusGame --> tieGame: [Tie Game]
+
+if_statusGame --> prepareWinner: [winner]
+prepareWinner --> showWinner: System show winner
+
+
+showWinner --> [*]: System allows Resume
+
+tieGame --> [*]: System allows Redo \nSystem allows Undo
+
+
+
+@enduml

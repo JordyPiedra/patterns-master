@@ -1,0 +1,21 @@
+@startuml
+
+state OUT_GAME
+state INITIAL
+state EXIT
+
+state initOutGame as " "
+state outGame as " "
+
+
+[*] --> OUT_GAME
+OUT_GAME --> initOutGame: Player request to resume a new game
+initOutGame --> outGame: System request to continue
+
+outGame --> INITIAL: Player introduces yes
+outGame --> EXIT: Player introduces no
+
+INITIAL --> [*]
+EXIT --> [*]
+
+@enduml
