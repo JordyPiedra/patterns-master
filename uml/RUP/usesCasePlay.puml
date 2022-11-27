@@ -21,6 +21,8 @@ state playAction as " "
 
 
 
+
+
 [*] --> IN_GAME
 
 
@@ -71,7 +73,7 @@ putToken --> updatedBoard: System shows updated board
 updatedBoard --> if_statusGame
 
 if_statusGame --> initBoard: change Player
-if_statusGame --> tieGame: [Tie Game]
+if_statusGame --> tieGame: [Draw Game]
 
 if_statusGame --> prepareWinner: [winner]
 prepareWinner --> showWinner: System show winner

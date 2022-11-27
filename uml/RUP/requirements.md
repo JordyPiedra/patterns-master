@@ -17,7 +17,7 @@ More info [here](https://es.wikipedia.org/wiki/Conecta_4).
     </td>
 </table>
 
-### Vista de Casos de Uso
+### Vist.a de Casos de Uso
 
 
 | **Diagrama de Actores y Casos de Uso** |  **Diagrama de Contexto**   |
@@ -33,6 +33,15 @@ More info [here](https://es.wikipedia.org/wiki/Conecta_4).
 ### Vista de Caso de Uso Play
 
  <img src="static/usesCasePlay.png" alt="drawing" />
+
+### Vista de Caso de Uso Undo
+
+ <img src="static/usesCaseUndo.png" alt="drawing" />
+
+### Vista de Caso de Uso Redo
+
+ <img src="static/usesCaseRedo.png" alt="drawing" />
+
 
 
 
@@ -97,7 +106,7 @@ Put token column position 1
  | * | * | * | * | * | * | 
  | * | * | * | * | * | * | 
  | * | * | * | * | * | * | 
- | * | * | * | * | * | * |
+ | B | * | * | * | * | * |
  
     
 ----- Choose one option -----
@@ -113,8 +122,8 @@ Put token column position
  | * | * | * | * | * | * | 
  | * | * | * | * | * | * | 
  | * | * | * | * | * | * | 
- | * | * | * | * | * | * | 
- | * | * | * | * | * | * |
+ | R | * | * | * | * | * | 
+ | B | * | * | * | * | * |
  
  
      

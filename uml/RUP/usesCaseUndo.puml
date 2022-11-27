@@ -1,0 +1,24 @@
+@startuml
+
+state IN_GAME
+state undo as " "
+state undodoable as " "
+state if_undo <<choice>>
+state undo_yes as " "
+state undo_no as " "
+
+[*] --> IN_GAME
+IN_GAME --> undo: Current player request Undo
+undo --> undodoable: System shows updated board
+undodoable --> if_undo: System allows Play
+if_undo --> undo_yes: [undoable]
+note on link
+    currentPlayer.tokens > 0
+end note
+
+if_undo --> undo_no
+
+undo_yes --> [*]: System allows Play\nSystem allows Redo if redoable \nSystem allows Undo
+undo_no --> [*]: System allows Play\nSystem allows Redo if redoable
+
+@enduml
