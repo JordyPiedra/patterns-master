@@ -4,14 +4,22 @@ state INITIAL
 state IN_GAME
 state OUT_GAME
 state EXIT
+state if_undoable <<choice>>
+state if_redoable <<choice>>
+
 state if_finished <<choice>>
 state if_resume <<choice>>
 
 [*] --> INITIAL
 INITIAL --> IN_GAME: Start
 IN_GAME --> if_finished: Play
-IN_GAME --> if_finished: Undo
-if_finished --> IN_GAME: Redo
+
+
+IN_GAME  --> if_undoable: [isUndoable]
+if_undoable --> if_finished: Undo
+
+if_finished --> if_redoable: [isRedoable]
+if_redoable -> IN_GAME: Redo
 
 if_finished --> OUT_GAME: [finished]
 OUT_GAME --> if_resume: Resume
